@@ -1,7 +1,7 @@
 
 # Bring in deps
 import os 
-from apikey import apikey 
+from dotenv import load_dotenv
 
 import streamlit as st 
 from langchain.llms import GooglePalm
@@ -10,7 +10,7 @@ from langchain.chains import LLMChain
 from langchain.memory import ConversationBufferMemory
 from langchain.utilities import WikipediaAPIWrapper 
 
-os.environ['GOOGLE_API_KEY'] = apikey
+load_dotenv()  # take environment variables from .env (especially openai api key)
 
 # App framework
 st.title('Wikipedia + GPT')
